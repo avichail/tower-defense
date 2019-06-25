@@ -67,7 +67,7 @@ class towerDefense(Animation):
         self.towerButtons = None
         self.towerImage = None
         self.towers = None
-        self.waveNum = None
+        self.waveNum = 10
         if towerDefense._instance is not None:
             raise RuntimeError("This class is a singleton!")
         else:
@@ -380,6 +380,10 @@ class towerDefense(Animation):
             color = "cyan"
         if self.waveNum > 8:
             color = "maroon"
+        if self.waveNum > 10:
+            color = "gold"
+        if self.waveNum > 12:
+            color = "ruby"
         self.enemyWave.wave.append(Enemy(self.rows, self.cols,
                                          self.cellDim, self.startLocation,
                                          self.board, self.enemyHealth,
