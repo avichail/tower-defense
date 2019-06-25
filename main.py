@@ -141,13 +141,13 @@ class towerDefense(Animation):
             return os.path.join(base_path, relative_path)
 
         self.gameOverImage = PhotoImage(file=get_path("img/gameOver.gif"))
-        self.gameOverHelpImage = \
+        self.gameOverHelpImage =\
             PhotoImage(file=get_path("img/gameOverHelp.gif"))
         self.startImage = PhotoImage(file=get_path("img/towerDefense.gif"))
         self.startHelpImage = PhotoImage(file=get_path("img/startHelp.gif"))
-        self.instructionsImage = \
+        self.instructionsImage =\
             PhotoImage(file=get_path("img/instructions.gif"))
-        self.instructionsHelpImage = \
+        self.instructionsHelpImage =\
             PhotoImage(file=get_path("img/instructionsHelp.gif"))
         self.pauseImage = PhotoImage(file=get_path("img/pauseImage.gif"))
         self.youWinImage = PhotoImage(file=get_path("img/youWin.gif"))
@@ -326,8 +326,8 @@ class towerDefense(Animation):
             base_path = os.path.abspath(".")
         pygame.mixer.music.load(
             os.path.join(
-                base_path, "audio/TaDa.wav"))  # Loading File Into Mixer
-        pygame.mixer.music.play()  # Playing It In The Whole Device
+              base_path, "audio/TaDa.wav"))  # Loading File Into Mixer
+        pygame.mixer.music.play()   # Playing It In The Whole Device
         self.youWon = True
 
     def timerFired(self):
