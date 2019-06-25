@@ -47,7 +47,7 @@ class Enemy:
             self.speedFactor = 8.0 / 5
         elif self.color == "cyan" or self.color == "maroon":
             self.speedFactor = 2.0
-        elif self.color == "gold" or self.color == "ruby":
+        elif self.color == "gold3" or self.color == "SeaGreen2":
             self.speedFactor = 2.4
 
     def moveEnemy(self):

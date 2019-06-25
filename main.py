@@ -67,7 +67,7 @@ class towerDefense(Animation):
         self.towerButtons = None
         self.towerImage = None
         self.towers = None
-        self.waveNum = 10
+        self.waveNum = None
         if towerDefense._instance is not None:
             raise RuntimeError("This class is a singleton!")
         else:
@@ -141,13 +141,13 @@ class towerDefense(Animation):
             return os.path.join(base_path, relative_path)
 
         self.gameOverImage = PhotoImage(file=get_path("img/gameOver.gif"))
-        self.gameOverHelpImage =\
+        self.gameOverHelpImage = \
             PhotoImage(file=get_path("img/gameOverHelp.gif"))
         self.startImage = PhotoImage(file=get_path("img/towerDefense.gif"))
         self.startHelpImage = PhotoImage(file=get_path("img/startHelp.gif"))
-        self.instructionsImage =\
+        self.instructionsImage = \
             PhotoImage(file=get_path("img/instructions.gif"))
-        self.instructionsHelpImage =\
+        self.instructionsHelpImage = \
             PhotoImage(file=get_path("img/instructionsHelp.gif"))
         self.pauseImage = PhotoImage(file=get_path("img/pauseImage.gif"))
         self.youWinImage = PhotoImage(file=get_path("img/youWin.gif"))
@@ -308,7 +308,7 @@ class towerDefense(Animation):
 
     def newEnemyWave(self):
         self.isEnemyWave = True
-        self.waveNum += 1
+        # self.waveNum += 1 todo check
         self.numEnemies += 2
         self.enemyHealth += 2
         self.enemyWave = EnemyWave(self.numEnemies, self.rows,
@@ -326,8 +326,8 @@ class towerDefense(Animation):
             base_path = os.path.abspath(".")
         pygame.mixer.music.load(
             os.path.join(
-              base_path, "audio/TaDa.wav"))  # Loading File Into Mixer
-        pygame.mixer.music.play()   # Playing It In The Whole Device
+                base_path, "audio/TaDa.wav"))  # Loading File Into Mixer
+        pygame.mixer.music.play()  # Playing It In The Whole Device
         self.youWon = True
 
     def timerFired(self):
@@ -360,6 +360,7 @@ class towerDefense(Animation):
                 if self.startWave is False and self.enemyWaveIsEmpty():
                     self.isEnemyWave = False
                     self.numEnemiesOnBoard = 0
+                    self.waveNum += 1
             else:
                 for tower in self.towers.towerList:
                     for shot in tower.shots:
@@ -381,9 +382,9 @@ class towerDefense(Animation):
         if self.waveNum > 8:
             color = "maroon"
         if self.waveNum > 10:
-            color = "gold"
+            color = "gold3"
         if self.waveNum > 12:
-            color = "ruby"
+            color = "SeaGreen2"
         self.enemyWave.wave.append(Enemy(self.rows, self.cols,
                                          self.cellDim, self.startLocation,
                                          self.board, self.enemyHealth,
