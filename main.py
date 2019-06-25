@@ -308,7 +308,7 @@ class towerDefense(Animation):
 
     def newEnemyWave(self):
         self.isEnemyWave = True
-        # self.waveNum += 1 todo check
+        self.waveNum += 1
         self.numEnemies += 2
         self.enemyHealth += 2
         self.enemyWave = EnemyWave(self.numEnemies, self.rows,
@@ -360,7 +360,6 @@ class towerDefense(Animation):
                 if self.startWave is False and self.enemyWaveIsEmpty():
                     self.isEnemyWave = False
                     self.numEnemiesOnBoard = 0
-                    self.waveNum += 1
             else:
                 for tower in self.towers.towerList:
                     for shot in tower.shots:
